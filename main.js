@@ -1,12 +1,10 @@
-// todo: make japanese character string
-
 const body = document.body;
 const root = document.getElementById("root");
 
 window.addEventListener("dragenter", (e) => {
     e.stopPropagation();
     e.preventDefault();
-    body.style.backgroundColor = "#ddd";
+    body.style.backgroundColor = "#ccc";
 });
 window.addEventListener("dragover", (e) => {
     e.stopPropagation();
@@ -30,14 +28,26 @@ let currentSize = 1;
 
 image.addEventListener("load", generateTextImage);
 
+let plusPressed = false;
+let minusPressed = false;
+document.addEventListener("keydown", (e) => {
+    const key = e.key;
+    if (!minusPressed && key === "-") {
+        minusPressed = true;
+        currentSize /= 1.2;
+        generateTextImage();
+    } else if (!plusPressed && (key === "+" || key === "=")) {
+        plusPressed = true;
+        currentSize *= 1.2;
+        generateTextImage();
+    }
+});
 document.addEventListener("keyup", (e) => {
     const key = e.key;
     if (key === "-") {
-        currentSize /= 1.2;
-        generateTextImage();
+        minusPressed = false;
     } else if (key === "+" || key === "=") {
-        currentSize *= 1.2;
-        generateTextImage();
+        plusPressed = false;
     }
 });
 
@@ -100,10 +110,5 @@ function convertImgDataToText(imgData) {
         root.removeChild(root.firstChild);
     }
 
-    const tip = document.createElement("div");
-    tip.classList.add("tip");
-    tip.textContent = "Press +/- to resize the image";
-
-    root.appendChild(tip);
     root.appendChild(textContainer);
 }
