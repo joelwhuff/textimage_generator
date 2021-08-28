@@ -27,6 +27,7 @@ body {
 .text-cntr div {
     font-size: 9px;
     font-weight: bold;
+    /* set letter-spacing to 1px and line-height to 6px for extra fidelity */
     letter-spacing: 2.5px;
     line-height: 8px;
     white-space: pre;
