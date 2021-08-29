@@ -1,2 +1,2 @@
 # Renders images using text characters
-![netero](https://user-images.githubusercontent.com/52194619/131225693-5dc0b8c0-a98c-4e50-9361-b918e2194fd3.png)
+![Screenshot from 2021-08-28 20-32-00](https://user-images.githubusercontent.com/52194619/131234322-bf97c4f6-dfb9-499e-8e78-8a96e46f8356.png)
